@@ -1,4 +1,11 @@
 # Docker
+- task: Docker@2
+- task: Go@0
+  inputs:
+    command: 'get'
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -26,18 +33,12 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
-          $(tag)
-          trigger:
-            branches:
-                include:
-                      - main
-                            - master
+      
+    
+                
+                      
+                        
 
-                            pool:
-                              vmImage: 'ubuntu-latest'
-
-                              steps:
-                                - script: |
-                                      docker build -t Aaiza .
-                                          displayName: 'Build
+                          
+                        
 
